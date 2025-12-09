@@ -1,0 +1,38 @@
+@{
+    ViewData["Title"] = "Upload Employees";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h3 class="mb-0"><i class="bi bi-file-earmark-spreadsheet me-2"></i>Import Employees</h3>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted mb-4">Select an Excel file (.xlsx) containing employee data to import or update
+                        records.</p>
+
+                    <form asp-action="Upload" enctype="multipart/form-data" method="post">
+                        <div asp-validation-summary="All" class="alert alert-danger" role="alert"></div>
+
+                        <div class="mb-4">
+                            <label for="file" class="form-label fw-bold">Excel File</label>
+                            <input type="file" name="file" class="form-control form-control-lg" accept=".xlsx"
+                                required />
+                            <div class="form-text">Only .xlsx files are supported.</div>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="bi bi-cloud-upload me-2"></i>Upload & Process
+                            </button>
+                            <a asp-controller="Employees" asp-action="Index"
+                                class="btn btn-outline-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
