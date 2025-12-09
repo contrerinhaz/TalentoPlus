@@ -1,0 +1,44 @@
+@model TalentoPlus.Web.Entities.Department
+
+@{
+    ViewData["Title"] = "Department Details";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+            <h3 class="mb-0"><i class="bi bi-building me-2"></i>Department Details</h3>
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-light btn-sm"><i
+                    class="bi bi-pencil me-1"></i>Edit</a>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Name)</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.Name)</dd>
+            </dl>
+
+            <h5 class="text-primary border-bottom pb-2 mt-4 mb-3">Employees in this Department</h5>
+            @if (Model.Employees != null && Model.Employees.Any())
+            {
+                <ul class="list-group">
+                    @foreach (var employee in Model.Employees)
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            @employee.FirstName @employee.LastName
+                            <span class="badge bg-primary rounded-pill">@employee.JobTitle</span>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <div class="alert alert-warning" role="alert">
+                    No employees assigned to this department.
+                </div>
+            }
+        </div>
+        <div class="card-footer bg-light">
+            <a asp-action="Index" class="btn btn-secondary"><i class="bi bi-arrow-left me-1"></i>Back to List</a>
+        </div>
+    </div>
+</div>
