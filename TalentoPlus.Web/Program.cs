@@ -5,6 +5,13 @@ using TalentoPlus.Web.Repositories.Implementations;
 using TalentoPlus.Web.Repositories.Interfaces;
 using TalentoPlus.Web.Services.Implementations;
 using TalentoPlus.Web.Services.Interfaces;
+using QuestPDF.Infrastructure;
+using Microsoft.AspNetCore.Localization; // Added for RequestCulture and RequestLocalizationOptions
+
+QuestPDF.Settings.License = LicenseType.Community;
+
+// Fix for PostgreSQL DateTime issue globally
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,7 +38,18 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.AccessDeniedPath = "/Account/AccessDenied";
 });
 
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    var supportedCultures = new[] { new System.Globalization.CultureInfo("es-CO") };
+    options.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("es-CO");
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+});
+
 builder.Services.AddControllersWithViews();
+
+// Register HttpClient
+builder.Services.AddHttpClient();
 
 // Register Repositories
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
@@ -42,6 +60,8 @@ builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IDepartmentService, DepartmentService>();
 builder.Services.AddScoped<IExcelService, ExcelService>();
+builder.Services.AddScoped<IDashboardService, DashboardService>();
+builder.Services.AddScoped<IAiService, GeminiAiService>();
 
 var app = builder.Build();
 
@@ -70,6 +90,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+app.UseRequestLocalization();
 
 app.UseRouting();
 
