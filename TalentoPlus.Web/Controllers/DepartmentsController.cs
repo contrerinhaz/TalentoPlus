@@ -15,9 +15,11 @@ public class DepartmentsController : Controller
         _departmentService = departmentService;
     }
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int? pageNumber)
     {
-        return View(await _departmentService.GetAllDepartmentsAsync());
+        int pageSize = 10;
+        var departments = await _departmentService.GetPaginatedDepartmentsAsync(pageNumber ?? 1, pageSize);
+        return View(departments);
     }
 
     public IActionResult Create()
@@ -66,6 +68,22 @@ public class DepartmentsController : Controller
             await _departmentService.UpdateDepartmentAsync(department);
             return RedirectToAction(nameof(Index));
         }
+        return View(department);
+    }
+
+    public async Task<IActionResult> Details(int? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+
+        var department = await _departmentService.GetDepartmentByIdAsync(id.Value);
+        if (department == null)
+        {
+            return NotFound();
+        }
+
         return View(department);
     }
 

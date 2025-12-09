@@ -1,22 +1,22 @@
-@model IEnumerable<TalentoPlus.Web.Entities.Department>
+@model TalentoPlus.Web.Models.PaginatedList<TalentoPlus.Web.Entities.Department>
 
 @{
-    ViewData["Title"] = "Departments";
+    ViewData["Title"] = "Departamentos";
 }
 
 <div class="container mt-4">
     <div class="card shadow-sm">
         <div class="card-header bg-white d-flex justify-content-between align-items-center py-3">
-            <h2 class="mb-0 text-primary"><i class="bi bi-building me-2"></i>Departments</h2>
-            <a asp-action="Create" class="btn btn-success"><i class="bi bi-plus-lg me-1"></i>Create New</a>
+            <h2 class="mb-0 text-primary"><i class="bi bi-building me-2"></i>Departamentos</h2>
+            <a asp-action="Create" class="btn btn-success"><i class="bi bi-plus-lg me-1"></i>Crear Nuevo</a>
         </div>
         <div class="card-body p-0">
             <div class="table-responsive">
                 <table class="table table-hover table-striped mb-0 align-middle">
                     <thead class="table-light">
                         <tr>
-                            <th class="ps-4">@Html.DisplayNameFor(model => model.Name)</th>
-                            <th class="text-end pe-4">Actions</th>
+                            <th class="ps-4">Nombre</th>
+                            <th class="text-end pe-4">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,17 +27,36 @@
                                 <td class="text-end pe-4">
                                     <div class="btn-group" role="group">
                                         <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary"
-                                            title="Edit"><i class="bi bi-pencil"></i></a>
+                                            title="Editar"><i class="bi bi-pencil"></i></a>
                                         <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info"
-                                            title="Details"><i class="bi bi-info-circle"></i></a>
+                                            title="Detalles"><i class="bi bi-info-circle"></i></a>
                                         <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger"
-                                            title="Delete"><i class="bi bi-trash"></i></a>
+                                            title="Eliminar"><i class="bi bi-trash"></i></a>
                                     </div>
                                 </td>
                             </tr>
                         }
                     </tbody>
                 </table>
+            </div>
+        </div>
+        <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+            <div>
+                Página @Model.PageIndex de @Model.TotalPages
+            </div>
+            <div>
+                @{
+                    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+                    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+                }
+                <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex - 1)"
+                    class="btn btn-outline-primary btn-sm @prevDisabled">
+                    <i class="bi bi-chevron-left"></i> Anterior
+                </a>
+                <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex + 1)"
+                    class="btn btn-outline-primary btn-sm @nextDisabled">
+                    Siguiente <i class="bi bi-chevron-right"></i>
+                </a>
             </div>
         </div>
     </div>

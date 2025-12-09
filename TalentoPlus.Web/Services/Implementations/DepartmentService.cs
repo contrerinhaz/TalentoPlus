@@ -18,9 +18,15 @@ public class DepartmentService : IDepartmentService
         return await _departmentRepository.GetAllAsync();
     }
 
+    public async Task<Models.PaginatedList<Department>> GetPaginatedDepartmentsAsync(int pageIndex, int pageSize)
+    {
+        var (items, count) = await _departmentRepository.GetPaginatedAsync(pageIndex, pageSize);
+        return new Models.PaginatedList<Department>(items.ToList(), count, pageIndex, pageSize);
+    }
+
     public async Task<Department?> GetDepartmentByIdAsync(int id)
     {
-        return await _departmentRepository.GetByIdAsync(id);
+        return await _departmentRepository.GetByIdWithDetailsAsync(id);
     }
 
     public async Task CreateDepartmentAsync(Department department)
