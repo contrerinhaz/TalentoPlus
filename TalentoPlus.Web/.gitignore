@@ -1,0 +1,151 @@
+############################
+#      .NET / C# BASE      #
+############################
+
+# Compilación
+bin/
+obj/
+out/
+Debug/
+Release/
+*.dll
+*.exe
+*.pdb
+*.cache
+*.mdb
+
+# Archivos generados por el SDK
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Archivos de usuario
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.swp
+*.swo
+
+############################
+#       ASP.NET CORE       #
+############################
+
+# Archivos generados en tiempo de ejecución
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.local.json
+Properties/launchSettings.json
+
+# Logs
+*.log
+logs/
+LogFiles/
+
+# Publicaciones (se regeneran)
+wwwroot/lib/
+wwwroot/dist/
+publish/
+*.publishsettings
+
+############################
+#     VISUAL STUDIO / VS   #
+############################
+
+.vs/
+*.dbmdl
+*.jfm
+*.vscode/
+*.vsp
+*.vspscc
+*.idx
+
+# SQL Server local
+App_Data/*.mdf
+App_Data/*.ldf
+
+############################
+#  VISUAL STUDIO CODE (VSCode)
+############################
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+############################
+#    JETBRAINS / RIDER     #
+############################
+
+.idea/
+*.sln.iml
+
+############################
+#        SISTEMA OS        #
+############################
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+############################
+#        DOTNET TOOLS      #
+############################
+
+.tools/
+.nuget/packages/
+*.nupkg
+# Si usas herramientas de cobertura:
+coverage/
+coverage*.json
+coverage*.xml
+coverage*.info
+
+############################
+#         DOCKER           #
+############################
+
+docker-compose.override.yml
+*.pid
+*.seed
+*.tar
+
+############################
+#       NODE (si usas)     #
+############################
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+build/
+
+############################
+#      MISC OPCIONALES     #
+############################
+
+# Archivos de editor
+*.orig
+*.tmp
+*.bak
+
+# Certificados locales
+*.crt
+*.pem
+*.key
+
+############################
+#   EF Core Migrations     #
+# (Si deseas ignorarlas, descomenta)
+############################
+# Migrations/

@@ -1,0 +1,146 @@
+##########################################
+#              .NET CORE API             #
+##########################################
+
+# Build outputs
+bin/
+obj/
+out/
+Debug/
+Release/
+artifacts/
+
+# Runtime generated files
+*.dll
+*.exe
+*.pdb
+*.cache
+*.mdb
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.swp
+*.swo
+
+##########################################
+#           ASP.NET CORE API             #
+##########################################
+
+# App settings locales (NO subir llaves)
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.local.json
+
+# Launch settings (solo para debugging local)
+Properties/launchSettings.json
+
+# Logs
+*.log
+logs/
+LogFiles/
+
+# Certificados locales de desarrollo
+*.pfx
+*.pem
+*.key
+*.crt
+
+# Archivos generados en ejecución
+*.pid
+
+##########################################
+#         VISUAL STUDIO / VS CODE        #
+##########################################
+
+# Visual Studio
+.vs/
+*.dbmdl
+*.vcxproj*
+*.jfm
+
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+##########################################
+#          JETBRAINS RIDER               #
+##########################################
+
+.idea/
+*.sln.iml
+
+##########################################
+#           SISTEMA OPERATIVO            #
+##########################################
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+##########################################
+#              DOTNET TOOLS              #
+##########################################
+
+.nuget/
+.nuget/packages/
+*.nupkg
+
+# Coverage tools
+coverage/
+coverage*.json
+coverage*.xml
+coverage*.info
+
+##########################################
+#                 DOCKER                 #
+##########################################
+
+docker-compose.override.yml
+*.tar
+*.pid
+
+##########################################
+#           EF CORE MIGRATIONS           #
+##########################################
+# Si NO quieres subir migraciones:
+# Migrations/
+
+##########################################
+#             NODE (si aplica)           #
+##########################################
+
+node_modules/
+dist/
+build/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+##########################################
+#                 OTROS                  #
+##########################################
+
+# Archivos temporales
+*.tmp
+*.bak
+*.orig
+
+# Dumps
+*.dmp
+
+# Archivos varios
+*.log.*
