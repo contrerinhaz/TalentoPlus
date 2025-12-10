@@ -31,3 +31,7 @@ The easiest way to run the entire solution is using Docker Compose.
 ### Accessing the Application
 - **Web Application**: http://localhost:8080
 - **API**: http://localhost:8081
+
+## Author & Repository
+- **Author**: contrerinhaz
+- **Repository**: [https://github.com/contrerinhaz/TalentoPlus](https://github.com/contrerinhaz/TalentoPlus)
