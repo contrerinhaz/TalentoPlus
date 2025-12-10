@@ -1,0 +1,60 @@
+services:
+
+  db:
+    image: postgres:latest
+    container_name: talentoplus_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "Qwe.123*"
+      POSTGRES_DB: TalentoPlusDb
+    ports:
+      - "5433:5432"   # CAMBIO IMPORTANTE
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  tests:
+    build:
+      context: .
+      dockerfile: TalentoPlus.Tests/Dockerfile
+    container_name: talentoplus_tests
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      ConnectionStrings__DefaultConnection: "Host=db;Database=TalentoPlusDb;Username=postgres;Password=Qwe.123*"
+    restart: "no"
+
+  web:
+    build:
+      context: .
+      dockerfile: TalentoPlus.Web/Dockerfile
+    container_name: talentoplus_web
+    ports:
+      - "5000:8080"
+    depends_on:
+      tests:
+        condition: service_completed_successfully
+      db:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Host=db;Database=TalentoPlusDb;Username=postgres;Password=Qwe.123*"
+
+  api:
+    build:
+      context: .
+      dockerfile: TalentoPlus.Api/Dockerfile
+    container_name: talentoplus_api
+    ports:
+      - "5001:8080"
+    depends_on:
+      web:
+        condition: service_started
+      db:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Host=db;Database=TalentoPlusDb;Username=postgres;Password=Qwe.123*"

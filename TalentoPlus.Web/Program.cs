@@ -8,6 +8,7 @@ using TalentoPlus.Web.Services.Interfaces;
 using QuestPDF.Infrastructure;
 using Microsoft.AspNetCore.Localization; // Added for RequestCulture and RequestLocalizationOptions
 
+
 QuestPDF.Settings.License = LicenseType.Community;
 
 // Fix for PostgreSQL DateTime issue globally
@@ -63,6 +64,8 @@ builder.Services.AddScoped<IExcelService, ExcelService>();
 builder.Services.AddScoped<IDashboardService, DashboardService>();
 builder.Services.AddScoped<IAiService, GeminiAiService>();
 
+
+
 var app = builder.Build();
 
 // Seed Data
@@ -88,12 +91,15 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRequestLocalization();
 
 app.UseRouting();
+
 
 app.UseAuthorization();
 

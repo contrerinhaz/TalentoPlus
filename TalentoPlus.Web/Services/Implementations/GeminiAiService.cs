@@ -116,8 +116,8 @@ Pregunta: {query}";
 
     private async Task<string> CallGeminiApiAsync(string prompt)
     {
-        // Using gemini-2.0-flash-exp which often has better availability/limits for free tier
-        var url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key={_apiKey}";
+        // Using gemini-1.0-pro as fallback for better availability
+        var url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.0-pro:generateContent?key={_apiKey}";
 
         var requestBody = new
         {
