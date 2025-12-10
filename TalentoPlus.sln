@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TalentoPlus.Web", "TalentoP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TalentoPlus.Api", "TalentoPlus.Api\TalentoPlus.Api.csproj", "{EE29CE1F-2B5B-48F0-964D-10B9FB4B6C73}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TalentoPlus.Tests", "TalentoPlus.Tests\TalentoPlus.Tests.csproj", "{EC0FEA59-009A-40C8-9486-7429A6518C02}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{EE29CE1F-2B5B-48F0-964D-10B9FB4B6C73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE29CE1F-2B5B-48F0-964D-10B9FB4B6C73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE29CE1F-2B5B-48F0-964D-10B9FB4B6C73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC0FEA59-009A-40C8-9486-7429A6518C02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC0FEA59-009A-40C8-9486-7429A6518C02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC0FEA59-009A-40C8-9486-7429A6518C02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC0FEA59-009A-40C8-9486-7429A6518C02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

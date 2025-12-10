@@ -1,0 +1,103 @@
+#############################################
+#          .NET TEST PROJECT (xUnit)        #
+#############################################
+
+# Build outputs
+bin/
+obj/
+out/
+Debug/
+Release/
+artifacts/
+
+# Test results
+TestResults/
+*.trx
+*.xml
+*.coverage
+*.coveragexml
+
+# Coverlet coverage files
+coverage/
+coverage.info
+coverage.cobertura.xml
+coverage.opencover.xml
+coverage.json
+coverage.txt
+
+# Snapshot testing (si usas Verify o similares)
+*.verified.txt
+*.received.txt
+*.verified.json
+*.received.json
+
+#############################################
+#        USER / IDE / CONFIG FILES          #
+#############################################
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.cache
+*.dbmdl
+*.jfm
+
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
+!.vscode/extensions.json
+
+# JetBrains Rider / IntelliJ
+.idea/
+*.sln.iml
+
+#############################################
+#         SYSTEM / OS GENERATED FILES       #
+#############################################
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+#############################################
+#            PROJECT JUNK FILES             #
+#############################################
+
+*.tmp
+*.temp
+*.log
+*.bak
+*.orig
+*.swp
+*.swo
+
+#############################################
+#            NUGET / PACKAGES               #
+#############################################
+
+# Avoid committing NuGet global packages or caches
+.nuget/
+*.nupkg
+
+#############################################
+#     OTHER COMMON TESTING JUNK FILES       #
+#############################################
+
+# Dumps
+*.dmp
+
+# Local environment config (no subir)
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.local.json

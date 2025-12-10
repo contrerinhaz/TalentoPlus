@@ -1,0 +1,75 @@
+##########################################
+#      ARCHIVOS DE SOLUCIÓN .NET         #
+##########################################
+
+# Archivo de usuario de la solución (no debe subirse)
+*.sln.docstates
+
+##########################################
+#        VISUAL STUDIO / VS CODE         #
+##########################################
+
+# Visual Studio metadata
+.vs/
+
+# VSCode config local
+.vscode/
+!.vscode/settings.json
+!.vscode/extensions.json
+
+##########################################
+#       SISTEMA OPERATIVO (Basura)       #
+##########################################
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+##########################################
+# ARCHIVOS TEMPORALES, BACKUPS Y LOGS    #
+##########################################
+
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+
+##########################################
+#    CONTROL DE VERSIONES / MERGE        #
+##########################################
+
+# Archivos generados por merges
+*.rej
+*.orig
+
+##########################################
+#     CONFIGURACIÓN / META ARCHIVOS      #
+##########################################
+
+# Carpetas ocultas
+.idea/
+*.iml
+
+# Carpetas de dependencias globales
+.nuget/
+
+##########################################
+#         OTROS ARCHIVOS BASURA          #
+##########################################
+
+# Datos de editores
+*.swp
+*.swo
+
+# Archivos raros generados por sistema
+ehthumbs.db
+
