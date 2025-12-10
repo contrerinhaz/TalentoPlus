@@ -50,7 +50,7 @@ public class EmployeesController : ControllerBase
             await _employeeService.CreateEmployeeAsync(employee);
 
             var subject = "Bienvenido a TalentoPlus";
-            var body = $"<h1>¡Bienvenido, {dto.FirstName}!</h1><p>Tu registro ha sido exitoso. Ya puedes autenticarte en la plataforma.</p>";
+            var body = TalentoPlus.Api.Helpers.EmailTemplates.GetWelcomeEmail(dto.FirstName);
 
             await _emailService.SendEmailAsync(dto.Email, subject, body);
 
@@ -59,6 +59,30 @@ public class EmployeesController : ControllerBase
         catch (Exception ex)
         {
             return BadRequest(new { Message = "Error al registrar empleado: " + ex.Message });
+        }
+    }
+
+    [HttpPost("send-welcome/{id}")]
+    public async Task<IActionResult> SendWelcomeEmail(int id)
+    {
+        var employee = await _employeeService.GetEmployeeByIdAsync(id);
+        if (employee == null)
+        {
+            return NotFound("Empleado no encontrado.");
+        }
+
+        try
+        {
+            var subject = "Bienvenido a TalentoPlus";
+            var body = TalentoPlus.Api.Helpers.EmailTemplates.GetWelcomeEmail(employee.FirstName);
+
+            await _emailService.SendEmailAsync(employee.Email, subject, body);
+
+            return Ok(new { Message = $"Correo de bienvenida enviado a {employee.Email}" });
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { Message = "Error al enviar correo: " + ex.Message });
         }
     }
 

@@ -24,6 +24,7 @@ public class EmailService : IEmailService
         var password = smtpSettings["Password"];
         var enableSsl = bool.Parse(smtpSettings["EnableSsl"] ?? "true");
         var fromEmail = smtpSettings["FromEmail"];
+        var displayName = smtpSettings["DisplayName"] ?? "Talento Plus";
 
         using var client = new SmtpClient(host, port)
         {
@@ -33,7 +34,7 @@ public class EmailService : IEmailService
 
         var mailMessage = new MailMessage
         {
-            From = new MailAddress(fromEmail ?? username ?? "no-reply@talentoplus.com"),
+            From = new MailAddress(fromEmail ?? username ?? "no-reply@talentoplus.com", displayName),
             Subject = subject,
             Body = body,
             IsBodyHtml = true
